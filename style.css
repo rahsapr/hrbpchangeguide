@@ -1,0 +1,128 @@
+/* --- Global Styles & Variables (from your original good version) --- */
+:root {
+    --primary-color: #0052cc; --secondary-color: #00A3BF; --dark-color: #172B4D; --light-color: #F4F5F7; --text-color: #42526E; --white-color: #FFFFFF; --border-color: #DFE1E6; --success-color: #00875A; --info-color: #00B8D9; --font-family: 'Inter', sans-serif; --container-width: 1100px;
+}
+/* --- Basic Reset & Setup --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-family); line-height: 1.6; color: var(--text-color); background-color: var(--white-color); padding-top: 5px; /* Space for progress bar */ }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+.page-section { padding: 80px 0; }
+.bg-light { background-color: var(--light-color); }
+h1, h2, h3, h4 { color: var(--dark-color); font-weight: 700; }
+/* ... (all your other original, working styles for sections, buttons, etc. go here) ... */
+.btn { display: inline-block; padding: 12px 28px; border-radius: 5px; font-weight: 600; transition: all 0.3s ease; border: 2px solid transparent; }
+.btn-primary { background-color: var(--primary-color); color: var(--white-color); }
+.btn-primary:hover { background-color: #003e99; transform: translateY(-2px); }
+
+/* --- REFINED: Simple Progress Bar --- */
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+.progress-bar {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    border-radius: 0 2px 2px 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: sticky;
+    top: 0; /* Will be adjusted by JS if progress bar exists */
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 70px;
+    /* Removed transparent background logic for simplicity and stability */
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.nav-menu { display: flex; list-style: none; }
+.nav-menu li { margin-left: 25px; }
+.nav-menu a { color: var(--dark-color); font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+
+/* --- NEW: Sidebar Checklist & Toggle Button --- */
+.checklist-toggle-btn {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: bottom right;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1010;
+    border-radius: 8px 8px 0 0;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+.checklist-toggle-btn:hover { background-color: var(--secondary-color); }
+.checklist-toggle-btn i { margin-right: 8px; transform: rotate(90deg); }
+
+.checklist-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Start off-screen */
+    width: 380px;
+    max-width: 90vw;
+    height: 100%;
+    background-color: var(--white-color);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    z-index: 1020;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+}
+.checklist-sidebar.active { right: 0; }
+
+.sidebar-header {
+    display: flex; justify-content: space-between; align-items: center; padding: 20px;
+    background-color: var(--dark-color); color: var(--white-color); border-bottom: 1px solid var(--border-color);
+}
+.sidebar-header h3 { font-size: 1.3rem; margin: 0; color: var(--white-color); }
+
+.close-sidebar-btn { background: none; border: none; font-size: 2rem; font-weight: 300; cursor: pointer; color: var(--white-color); opacity: 0.7; transition: opacity 0.2s; line-height: 1; }
+.close-sidebar-btn:hover { opacity: 1; }
+
+.sidebar-content { padding: 20px; overflow-y: auto; flex-grow: 1; }
+
+.checklist-item { background-color: var(--light-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; border-left: 4px solid var(--border-color); }
+.checklist-item label { display: flex; align-items: center; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; margin-right: 15px; accent-color: var(--primary-color); cursor: pointer; }
+.checklist-item input[type="checkbox"]:checked + span { text-decoration: line-through; opacity: 0.6; }
+.checklist-item.completed { border-left-color: var(--success-color); }
+
+.quick-links { padding-top: 10px; margin-top: 10px; border-top: 1px solid var(--border-color); }
+.quick-links a { color: var(--primary-color); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.quick-links a i { margin-right: 5px; }
+.quick-links a:hover { text-decoration: underline; }
+
+.sidebar-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 1015;
+    opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+/* Jump To Top Button */
+.jump-to-top {
+    position: fixed; bottom: 30px; right: 30px; background: var(--primary-color); color: var(--white-color);
+    width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: all 0.4s ease; z-index: 999;
+}
+.jump-to-top.visible { opacity: 1; visibility: visible; }
+
+/* Include your other original, working styles below */

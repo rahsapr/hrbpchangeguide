@@ -1,130 +1,121 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- A. UNIFIED SCROLL HANDLER (for stability) ---
-    // This single function handles everything that needs to happen on scroll.
-    const handleScroll = () => {
+    // --- 1. UNIFIED SCROLL HANDLER ---
+    // Manages all scroll-based events for performance and stability.
+    const handleScrollEvents = () => {
         const scrollY = window.scrollY;
-        const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = document.documentElement.scrollTop;
-
-        // 1. Progress Bar
+        
+        // Progress Bar
         const progressBar = document.getElementById('progressBar');
         if (progressBar) {
-            const progress = (scrolled / scrollTotal) * 100;
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollY / scrollTotal) * 100;
             progressBar.style.width = progress + "%";
         }
 
-        // 2. Sticky Nav (now simpler and more reliable)
-        const navbar = document.getElementById('navbar');
-        if (navbar) {
-            // No class needed, it's sticky by default in the new CSS for stability.
-            // You can add back shadow effects here if desired.
-        }
-
-        // 3. Jump to Top Button Visibility
+        // Jump to Top Button
         const jumpToTopBtn = document.getElementById('jumpToTopBtn');
         if (jumpToTopBtn) {
-            if (scrollY > 300) {
-                jumpToTopBtn.classList.add('visible');
-            } else {
-                jumpToTopBtn.classList.remove('visible');
-            }
+            jumpToTopBtn.classList.toggle('visible', scrollY > 300);
         }
     };
-    // Attach the single scroll handler
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollEvents);
 
-
-    // --- B. INTERACTIVE SIDEBAR CHECKLIST ---
+    // --- 2. INTERACTIVE SIDEBAR CHECKLIST ---
     const checklistToggleBtn = document.getElementById('checklistToggleBtn');
     const closeSidebarBtn = document.getElementById('closeSidebarBtn');
     const checklistSidebar = document.getElementById('checklistSidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
     const checklistCheckboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
 
-    // Defensive check to ensure all sidebar elements exist before adding listeners
-    if (checklistToggleBtn && closeSidebarBtn && checklistSidebar && sidebarOverlay) {
+    if (checklistToggleBtn && checklistSidebar && closeSidebarBtn && sidebarOverlay) {
         const toggleSidebar = () => {
             checklistSidebar.classList.toggle('active');
             sidebarOverlay.classList.toggle('active');
         };
-
-        checklistToggleBtn.addEventListener('click', toggleSidebar);
-        closeSidebarBtn.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
+        [checklistToggleBtn, closeSidebarBtn, sidebarOverlay].forEach(el => el.addEventListener('click', toggleSidebar));
     }
-    
-    // Logic for saving and loading checklist progress from browser storage
+
     if (checklistCheckboxes.length > 0) {
-        const saveProgress = () => {
+        const updateChecklist = () => {
             const progress = {};
             checklistCheckboxes.forEach(checkbox => {
                 progress[checkbox.dataset.task] = checkbox.checked;
-                // Add a class to the parent for styling
                 checkbox.closest('.checklist-item').classList.toggle('completed', checkbox.checked);
             });
             localStorage.setItem('checklistProgress', JSON.stringify(progress));
         };
-
-        const loadProgress = () => {
-            try {
-                const progress = JSON.parse(localStorage.getItem('checklistProgress'));
-                if (progress) {
-                    checklistCheckboxes.forEach(checkbox => {
-                        const taskName = checkbox.dataset.task;
-                        checkbox.checked = progress[taskName] || false;
-                        checkbox.closest('.checklist-item').classList.toggle('completed', checkbox.checked);
-                    });
-                }
-            } catch (e) {
-                console.error("Could not load checklist progress:", e);
-            }
+        const loadChecklist = () => {
+            const progress = JSON.parse(localStorage.getItem('checklistProgress')) || {};
+            checklistCheckboxes.forEach(checkbox => {
+                checkbox.checked = progress[checkbox.dataset.task] || false;
+            });
+            updateChecklist(); // Also updates styling
         };
-
-        checklistCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', saveProgress);
-        });
-
-        loadProgress(); // Load progress on page start
+        checklistCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateChecklist));
+        loadChecklist(); // Load progress on page start
     }
 
-
-    // --- C. ALL OTHER PAGE FUNCTIONALITY (stable versions) ---
-
-    // FAQ Accordion
+    // --- 3. FAQ ACCORDION ---
     document.querySelectorAll('.faq-item').forEach(item => {
         const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        if (question && answer) {
-            question.addEventListener('click', () => {
-                const isActive = item.classList.toggle('active');
-                answer.style.maxHeight = isActive ? answer.scrollHeight + 'px' : null;
-            });
-        }
+        question.addEventListener('click', () => {
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.toggle('active');
+            answer.style.maxHeight = isActive ? answer.scrollHeight + 'px' : null;
+        });
     });
 
-    // Process Tabs
+    // --- 4. PROCESS TABS ---
     const tabsContainer = document.querySelector('.tabs-container');
     if (tabsContainer) {
         const tabButtons = tabsContainer.querySelectorAll('.tab-btn');
         const tabContents = tabsContainer.querySelectorAll('.tab-content');
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const tabNumber = button.dataset.tab;
+                const targetTab = button.dataset.tab;
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                tabContents.forEach(content => content.classList.toggle('active', content.dataset.tab === tabNumber));
+                tabContents.forEach(content => content.classList.toggle('active', content.dataset.tab === targetTab));
             });
         });
     }
 
-    // Timeline Drag/Scroll
+    // --- 5. HORIZONTAL TIMELINE DRAG-TO-SCROLL ---
     const timeline = document.querySelector('.timeline-wrapper');
     if (timeline) {
         let isDown = false, startX, scrollLeft;
         timeline.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - timeline.offsetLeft; scrollLeft = timeline.scrollLeft; });
         timeline.addEventListener('mouseleave', () => { isDown = false; });
         timeline.addEventListener('mouseup', () => { isDown = false; });
-        timeline.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - timeline.offsetLeft; const walk = (x - startX) * 2; timeline.scrollLeft = scrollLeft - walk; });
+        timeline.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - timeline.offsetLeft; const walk = x - startX; timeline.scrollLeft = scrollLeft - walk; });
+    }
+
+    // --- 6. ROTATING TIPS ---
+    const tipTextElement = document.getElementById('rotating-tip-text');
+    if (tipTextElement) {
+        const tips = ["Always start with the 'Why'.", "Empower managers; they are your change champions.", "Over-communicate: clarity prevents anxiety."];
+        let currentTipIndex = 0;
+        setInterval(() => {
+            currentTipIndex = (currentTipIndex + 1) % tips.length;
+            tipTextElement.style.opacity = '0';
+            setTimeout(() => { tipTextElement.textContent = tips[currentTipIndex]; tipTextElement.style.opacity = '1'; }, 300);
+        }, 5000);
+    }
+    
+    // --- 7. ACTIVE NAV LINK ON SCROLL ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    if (navLinks.length > 0 && sections.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: "-30% 0px -70% 0px" });
+        sections.forEach(section => observer.observe(section));
     }
 });

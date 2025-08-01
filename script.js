@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-        }, { rootMargin: '-30% 0px -70% 0px' }); // Highlights when section is in the middle 30% of the screen
+        }, { rootMargin: '-30% 0px -70% 0px' });
 
         sections.forEach(section => observer.observe(section));
     };
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.setAttribute('aria-expanded', isOpen);
         });
         
-        // Close menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinksContainer.classList.contains('open')) {
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('sidebar-open');
         };
 
-        // Load checked state from localStorage
         const loadCheckedState = () => {
             const checkedTasks = JSON.parse(localStorage.getItem(storageKey)) || [];
             checklistItems.forEach(checkbox => {
@@ -92,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Save checked state to localStorage
         const saveCheckedState = () => {
             const checkedTasks = [];
             checklistItems.forEach(checkbox => {
@@ -106,12 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.addEventListener('click', openSidebar);
         closeBtn.addEventListener('click', closeSidebar);
         overlay.addEventListener('click', closeSidebar);
-        
         quickLinks.forEach(link => link.addEventListener('click', closeSidebar));
-
         checklistItems.forEach(checkbox => checkbox.addEventListener('change', saveCheckedState));
 
-        loadCheckedState(); // Initial load
+        loadCheckedState();
     };
 
     // 5. Jump to Top Button
@@ -128,32 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Page Section Specific Functions ---
 
-    // 6. Rotating Tip Tile
-    const initRotatingTips = () => {
-        const tipElement = document.getElementById('rotating-tip-text');
-        if (!tipElement) return;
-
-        const tips = [
-            "Over-communicate. It's better to repeat key messages than to leave people guessing.",
-            "Involve managers early and often. They are your most critical partners in any change.",
-            "Focus on fairness and equity. Every decision must be defensible and consistently applied.",
-            "Use data to tell the story and justify the change, from headcount to market compensation."
-        ];
-        let currentTipIndex = 0;
-
-        setInterval(() => {
-            tipElement.classList.add('fade-out');
-            
-            setTimeout(() => {
-                currentTipIndex = (currentTipIndex + 1) % tips.length;
-                tipElement.textContent = tips[currentTipIndex];
-                tipElement.classList.remove('fade-out');
-            }, 500); // Matches CSS transition duration
-
-        }, 5000); // Change tip every 5 seconds
-    };
-
-    // 7. 5-Phase Process Tabs
+    // 6. 5-Phase Process Tabs
     const initTabs = () => {
         const tabsContainer = document.querySelector('.tabs-container');
         if (!tabsContainer) return;
@@ -167,14 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
-            // Deactivate all
             tabButtons.forEach(button => {
                 button.classList.remove('active');
                 button.setAttribute('aria-selected', 'false');
             });
             tabPanels.forEach(panel => panel.classList.remove('active'));
 
-            // Activate clicked
             clickedTab.classList.add('active');
             clickedTab.setAttribute('aria-selected', 'true');
             const targetPanel = document.getElementById(clickedTab.getAttribute('aria-controls'));
@@ -184,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // 8. Horizontal Drag-to-Scroll Timeline
+    // 7. Horizontal Drag-to-Scroll Timeline
     const initTimelineDragScroll = () => {
         const slider = document.querySelector('.timeline-container');
         if (!slider) return;
@@ -195,28 +163,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
-            slider.classList.add('active');
+            slider.style.cursor = 'grabbing';
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
         slider.addEventListener('mouseleave', () => {
             isDown = false;
-            slider.classList.remove('active');
+            slider.style.cursor = 'grab';
         });
         slider.addEventListener('mouseup', () => {
             isDown = false;
-            slider.classList.remove('active');
+            slider.style.cursor = 'grab';
         });
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // The multiplier '2' makes it scroll faster
+            const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
         });
     };
 
-    // 9. FAQ Accordion
+    // 8. FAQ Accordion
     const initAccordion = () => {
         const accordionItems = document.querySelectorAll('.accordion-item');
         if (!accordionItems.length) return;
@@ -228,18 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
             header.addEventListener('click', () => {
                 const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-                // Optional: Close other accordions when one is opened
-                // accordionItems.forEach(otherItem => {
-                //     otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                //     otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                // });
-
-                if (isExpanded) {
-                    header.setAttribute('aria-expanded', 'false');
-                    content.style.maxHeight = null;
-                } else {
-                    header.setAttribute('aria-expanded', 'true');
+                header.setAttribute('aria-expanded', !isExpanded);
+                if (!isExpanded) {
                     content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = null;
                 }
             });
         });
@@ -251,9 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHamburgerMenu();
     initSidebarChecklist();
     initJumpToTop();
-    initRotatingTips();
     initTabs();
     initTimelineDragScroll();
     initAccordion();
-
 });

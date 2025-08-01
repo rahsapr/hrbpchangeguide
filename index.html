@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook: Job Family Change Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. Refined, Stable Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- 2. Main Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Playbook</a>
+            <ul class="nav-menu">
+                <li><a href="#welcome">Welcome</a></li>
+                <li><a href="#themes">Themes</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 3. NEW: Expandable Sidebar Checklist -->
+    <aside class="checklist-sidebar" id="checklistSidebar">
+        <div class="sidebar-header">
+            <h3>Your Action Checklist</h3>
+            <button class="close-sidebar-btn" id="closeSidebarBtn">×</button>
+        </div>
+        <div class="sidebar-content">
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="principles">
+                    <span>Understand the Guiding Principles</span>
+                </label>
+                <div class="quick-links">
+                    <a href="#themes"><i class="fa-solid fa-anchor"></i> View Principles</a>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="process">
+                    <span>Review the 5-Phase Process</span>
+                </label>
+                <div class="quick-links">
+                     <a href="#process"><i class="fa-solid fa-list-check"></i> See Process</a>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="timeline">
+                    <span>Internalize the Project Timeline</span>
+                </label>
+                 <div class="quick-links">
+                     <a href="#timeline"><i class="fa-solid fa-calendar-days"></i> Check Timeline</a>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="tools">
+                    <span>Bookmark Key AI Tools</span>
+                </label>
+                 <div class="quick-links">
+                     <a href="#tools"><i class="fa-solid fa-microchip"></i> Access AI Tools</a>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="comms">
+                    <span>Download Communication Templates</span>
+                </label>
+                 <div class="quick-links">
+                     <a href="#resources"><i class="fa-solid fa-envelope-open-text"></i> Get Templates</a>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <label>
+                    <input type="checkbox" data-task="kit">
+                    <span>Review Manager's Survival Kit</span>
+                </label>
+                 <div class="quick-links">
+                     <a href="#resources"><i class="fa-solid fa-user-shield"></i> Open Kit</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- Overlay for when the sidebar is open -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 4. NEW: Sidebar Toggle Button -->
+    <button class="checklist-toggle-btn" id="checklistToggleBtn">
+        <i class="fa-solid fa-list-check"></i>
+        <span>Checklist</span>
+    </button>
+
+    <!-- 5. All original page content sections -->
+    <header class="hero-banner" id="home">
+        <div class="hero-content">
+            <h1>Guide to Making Job Family Changes</h1>
+            <p class="subtitle">A comprehensive AI-powered playbook for employee-centered job change management.</p>
+            <div class="hero-buttons">
+                <a href="#tldr" class="btn btn-secondary">TL;DR Version</a>
+                <a href="#tools" class="btn btn-primary">Access AI Tools</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="tldr" class="page-section"> ... </section>
+        <section id="welcome" class="page-section bg-light"> ... </section>
+        <section id="themes" class="page-section"> ... </section>
+        <section id="process" class="page-section bg-light"> ... </section>
+        <section id="timeline" class="page-section"> ... </section>
+        <section id="tools" class="page-section bg-light"> ... </section>
+        <section id="resources" class="page-section"> ... </section>
+        <section id="faq" class="page-section bg-light"> ... </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Your Company, Inc. | This is an internal playbook for HR and Management personnel.</p>
+    </footer>
+
+    <a href="#home" class="jump-to-top" id="jumpToTopBtn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

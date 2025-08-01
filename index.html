@@ -12,12 +12,12 @@
 </head>
 <body>
 
-    <!-- 1. Refined, Stable Progress Bar -->
+    <!-- PROGRESS BAR -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
     
-    <!-- 2. Main Navigation -->
+    <!-- NAVIGATION BAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">Playbook</a>
@@ -33,79 +33,25 @@
         </div>
     </nav>
     
-    <!-- 3. NEW: Expandable Sidebar Checklist -->
+    <!-- INTERACTIVE SIDEBAR CHECKLIST -->
     <aside class="checklist-sidebar" id="checklistSidebar">
         <div class="sidebar-header">
             <h3>Your Action Checklist</h3>
             <button class="close-sidebar-btn" id="closeSidebarBtn">×</button>
         </div>
         <div class="sidebar-content">
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="principles">
-                    <span>Understand the Guiding Principles</span>
-                </label>
-                <div class="quick-links">
-                    <a href="#themes"><i class="fa-solid fa-anchor"></i> View Principles</a>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="process">
-                    <span>Review the 5-Phase Process</span>
-                </label>
-                <div class="quick-links">
-                     <a href="#process"><i class="fa-solid fa-list-check"></i> See Process</a>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="timeline">
-                    <span>Internalize the Project Timeline</span>
-                </label>
-                 <div class="quick-links">
-                     <a href="#timeline"><i class="fa-solid fa-calendar-days"></i> Check Timeline</a>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="tools">
-                    <span>Bookmark Key AI Tools</span>
-                </label>
-                 <div class="quick-links">
-                     <a href="#tools"><i class="fa-solid fa-microchip"></i> Access AI Tools</a>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="comms">
-                    <span>Download Communication Templates</span>
-                </label>
-                 <div class="quick-links">
-                     <a href="#resources"><i class="fa-solid fa-envelope-open-text"></i> Get Templates</a>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <label>
-                    <input type="checkbox" data-task="kit">
-                    <span>Review Manager's Survival Kit</span>
-                </label>
-                 <div class="quick-links">
-                     <a href="#resources"><i class="fa-solid fa-user-shield"></i> Open Kit</a>
-                </div>
-            </div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="principles"><span>Understand Guiding Principles</span></label><div class="quick-links"><a href="#themes"><i class="fa-solid fa-anchor"></i> View Principles</a></div></div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="process"><span>Review the 5-Phase Process</span></label><div class="quick-links"><a href="#process"><i class="fa-solid fa-list-check"></i> See Process</a></div></div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="timeline"><span>Internalize Project Timeline</span></label><div class="quick-links"><a href="#timeline"><i class="fa-solid fa-calendar-days"></i> Check Timeline</a></div></div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="tools"><span>Bookmark Key AI Tools</span></label><div class="quick-links"><a href="#tools"><i class="fa-solid fa-microchip"></i> Access AI Tools</a></div></div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="comms"><span>Download Comm Templates</span></label><div class="quick-links"><a href="#resources"><i class="fa-solid fa-envelope-open-text"></i> Get Templates</a></div></div>
+            <div class="checklist-item"><label><input type="checkbox" data-task="kit"><span>Review Manager's Survival Kit</span></label><div class="quick-links"><a href="#resources"><i class="fa-solid fa-user-shield"></i> Open Kit</a></div></div>
         </div>
     </aside>
-    <!-- Overlay for when the sidebar is open -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <button class="checklist-toggle-btn" id="checklistToggleBtn"><i class="fa-solid fa-list-check"></i><span>Checklist</span></button>
 
-    <!-- 4. NEW: Sidebar Toggle Button -->
-    <button class="checklist-toggle-btn" id="checklistToggleBtn">
-        <i class="fa-solid fa-list-check"></i>
-        <span>Checklist</span>
-    </button>
-
-    <!-- 5. All original page content sections -->
+    <!-- HERO BANNER -->
     <header class="hero-banner" id="home">
         <div class="hero-content">
             <h1>Guide to Making Job Family Changes</h1>
@@ -118,24 +64,56 @@
     </header>
 
     <main>
-        <section id="tldr" class="page-section"> ... </section>
-        <section id="welcome" class="page-section bg-light"> ... </section>
-        <section id="themes" class="page-section"> ... </section>
-        <section id="process" class="page-section bg-light"> ... </section>
-        <section id="timeline" class="page-section"> ... </section>
-        <section id="tools" class="page-section bg-light"> ... </section>
-        <section id="resources" class="page-section"> ... </section>
-        <section id="faq" class="page-section bg-light"> ... </section>
+        <!-- TLDR SECTION -->
+        <section id="tldr" class="page-section">
+            <div class="container"><h2>The Short Version (TL;DR)</h2><p class="section-intro">In a hurry? Here’s the 3-step cheat sheet to get started immediately.</p><div class="tldr-steps"><div class="tldr-step"><h3><i class="fa-solid fa-1"></i> Assess & Plan</h3><p>Understand the 'why' and map out key stakeholders and impacts.</p><a href="#tools" class="btn btn-outline">Use Impact Analyzer AI</a></div><div class="tldr-step"><h3><i class="fa-solid fa-2"></i> Communicate</h3><p>Draft clear, empathetic, and consistent messaging for all audiences.</p><a href="#tools" class="btn btn-outline">Use Comms Drafter AI</a></div><div class="tldr-step"><h3><i class="fa-solid fa-3"></i> Execute & Support</h3><p>Roll out changes with strong manager support and clear feedback channels.</p><a href="#tools" class="btn btn-outline">Use FAQ Generator AI</a></div></div></div>
+        </section>
+        
+        <!-- WELCOME SECTION -->
+        <section id="welcome" class="page-section bg-light">
+            <div class="container welcome-container"><div class="welcome-text"><h2>Welcome to the Playbook</h2><p>Changing job families is more than a structural shift; it's a human experience. This guide empowers you to lead this change effectively, empathetically, and with confidence.</p></div><div class="welcome-tips"><div class="rotating-tile"><i class="fa-solid fa-lightbulb"></i><h4>Top Tip</h4><p id="rotating-tip-text">Always start with the 'Why'.</p></div></div></div>
+        </section>
+
+        <!-- KEY THEMES SECTION -->
+        <section id="themes" class="page-section">
+            <div class="container"><h2>Our Guiding Principles</h2><p class="section-intro">Three core themes anchor our approach to every job family change.</p><div class="themes-grid"><div class="theme-column"><i class="fa-solid fa-users-gear icon-feature"></i><h3>Employee-Centric</h3><p>Every decision is viewed through the lens of the employee experience. We prioritize clarity, support, and two-way communication.</p><div class="callout"><strong>Key Action:</strong> Host "Ask Me Anything" sessions with leadership.</div><ul class="highlights"><li><i class="fa-solid fa-check"></i> Proactive career pathing</li><li><i class="fa-solid fa-check"></i> Personalized impact statements</li></ul></div><div class="theme-column"><i class="fa-solid fa-handshake-angle icon-feature"></i><h3>Manager Empowerment</h3><p>Managers are the most critical link. We equip them with the tools, training, and confidence to lead their teams through the transition.</p><div class="callout"><strong>Key Action:</strong> Provide managers with a dedicated FAQ and talking points one week before employees are told.</div><ul class="highlights"><li><i class="fa-solid fa-check"></i> Just-in-time training modules</li><li><i class="fa-solid fa-check"></i> 1:1 coaching from HRBPs</li></ul></div><div class="theme-column"><i class="fa-solid fa-chart-line icon-feature"></i><h3>Data-Informed</h3><p>We use data to guide our planning and measure success, from initial sentiment analysis to post-launch productivity metrics.</p><div class="callout"><strong>Key Action:</strong> Launch a pulse survey 30 days after the change to measure sentiment.</div><ul class="highlights"><li><i class="fa-solid fa-check"></i> Pre-change readiness scores</li><li><i class="fa-solid fa-check"></i> Post-change engagement tracking</li></ul></div></div></div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section id="process" class="page-section bg-light">
+            <div class="container"><h2>The 5-Phase Process</h2><p class="section-intro">Follow this structured process for a predictable and successful outcome.</p><div class="tabs-container"><div class="tab-buttons"><button class="tab-btn active" data-tab="1">1. Discovery</button><button class="tab-btn" data-tab="2">2. Design</button><button class="tab-btn" data-tab="3">3. Comms</button><button class="tab-btn" data-tab="4">4. Launch</button><button class="tab-btn" data-tab="5">5. Sustain</button></div><div class="tab-content active" data-tab="1"><div class="process-step-content"><div class="process-column"><i class="fa-solid fa-magnifying-glass icon-small"></i><h4>Define the Scope</h4><p>Articulate the business case and define which roles are in scope.</p><div class="callout callout-info"><strong>Remember:</strong> A clear problem statement is half the solution.</div></div><div class="process-column"><i class="fa-solid fa-users icon-small"></i><h4>Identify Stakeholders</h4><p>Map out all key stakeholders, from sponsors to impacted employees.</p><div class="callout callout-info"><strong>Tip:</strong> Don't forget adjacent teams who might be affected.</div></div></div></div><div class="tab-content" data-tab="2"><div class="process-step-content"><div class="process-column"><i class="fa-solid fa-ruler-combined icon-small"></i><h4>Map New Job Families</h4><p>Develop the new job descriptions, leveling guides, and career paths.</p><div class="callout callout-info"><strong>Tip:</strong> Involve senior ICs in the design process for better buy-in.</div></div><div class="process-column"><i class="fa-solid fa-scale-balanced icon-small"></i><h4>Conduct Impact Analysis</h4><p>Analyze potential impacts on compensation, career, and teams.</p><div class="callout callout-info"><strong>Remember:</strong> Be prepared to address compensation questions head-on.</div></div></div></div><div class="tab-content" data-tab="3"><p class="placeholder-text">Phase 3: Comms content goes here.</p></div><div class="tab-content" data-tab="4"><p class="placeholder-text">Phase 4: Launch content goes here.</p></div><div class="tab-content" data-tab="5"><p class="placeholder-text">Phase 5: Sustain content goes here.</p></div></div></div>
+        </section>
+
+        <!-- TIMELINE SECTION -->
+        <section id="timeline" class="page-section">
+            <div class="container"><h2>High-Level Timeline</h2><p class="section-intro">Drag or scroll horizontally to see the full project lifecycle. <i class="fa-solid fa-arrow-right"></i></p></div><div class="timeline-wrapper"><div class="timeline-track"><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-flag-checkered"></i></div><div class="timeline-date">Week 1-2</div><h4 class="timeline-title">Inception</h4><p class="timeline-desc">Project kickoff and stakeholder alignment.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-pen-ruler"></i></div><div class="timeline-date">Week 3-6</div><h4 class="timeline-title">Design & Analysis</h4><p class="timeline-desc">Job family mapping and impact assessment.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-bullhorn"></i></div><div class="timeline-date">Week 7</div><h4 class="timeline-title">Comms Strategy</h4><p class="timeline-desc">Finalize all communication materials.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-user-shield"></i></div><div class="timeline-date">Week 8</div><h4 class="timeline-title">Manager Briefing</h4><p class="timeline-desc">Equip managers with tools & info.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-rocket"></i></div><div class="timeline-date">Week 9</div><h4 class="timeline-title">Launch</h4><p class="timeline-desc">Official communication to employees.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-comments"></i></div><div class="timeline-date">Week 9-10</div><h4 class="timeline-title">Initial Support</h4><p class="timeline-desc">1:1s, AMAs, and feedback sessions.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-microchip"></i></div><div class="timeline-date">Week 11</div><h4 class="timeline-title">Systems Update</h4><p class="timeline-desc">HRIS and other systems are updated.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-signal"></i></div><div class="timeline-date">Week 12</div><h4 class="timeline-title">Pulse Check</h4><p class="timeline-desc">Launch first sentiment survey.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-chart-pie"></i></div><div class="timeline-date">Week 13-16</div><h4 class="timeline-title">Measurement</h4><p class="timeline-desc">Review adoption and business metrics.</p></div><div class="timeline-card"><div class="timeline-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><div class="timeline-date">Ongoing</div><h4 class="timeline-title">Sustainment</h4><p class="timeline-desc">Integrate changes into business as usual.</p></div></div></div>
+        </section>
+
+        <!-- AI TOOLS SECTION -->
+        <section id="tools" class="page-section bg-light">
+            <div class="container"><h2>AI-Powered Tools</h2><p class="section-intro">Leverage these custom AI tools to accelerate your workflow.</p><div class="tools-grid"><div class="tool-card"><h4>Comms Drafter AI</h4><p>Generate first-draft communications for managers and employees.</p><a href="#" class="btn btn-primary">Launch Tool</a></div><div class="tool-card"><h4>Impact Analyzer AI</h4><p>Input a role and get a summary of potential change impacts.</p><a href="#" class="btn btn-primary">Launch Tool</a></div><div class="tool-card"><h4>FAQ Generator AI</h4><p>Create a comprehensive FAQ list based on your change plan.</p><a href="#" class="btn btn-primary">Launch Tool</a></div><div class="tool-card"><h4>Talking Points AI</h4><p>Craft clear and concise talking points for difficult conversations.</p><a href="#" class="btn btn-primary">Launch Tool</a></div><div class="tool-card"><h4>Risk Predictor AI</h4><p>Identifies potential risks and suggests mitigation strategies.</p><a href="#" class="btn btn-primary">Launch Tool</a></div><div class="tool-card"><h4>Sentiment Analyst AI</h4><p>Analyze open-ended feedback from surveys for key themes.</p><a href="#" class="btn btn-primary">Launch Tool</a></div></div></div>
+        </section>
+        
+        <!-- RESOURCES SECTION -->
+        <section id="resources" class="page-section">
+            <div class="container"><h2>Resources & Templates</h2><p class="section-intro">Your change management toolkit with everything you need for a successful job family change.</p><div class="resources-grid"><div class="resource-column"><h4><i class="fa-solid fa-envelope-open-text"></i> Communication Templates</h4><ul><li><a href="#">Manager Briefing Email</a></li><li><a href="#">All-Employee Announcement</a></li><li><a href="#">FAQ Document Template</a></li></ul><div class="callout callout-success"><strong>Tip:</strong> Customize the first paragraph of every email for the specific audience.</div></div><div class="resource-column"><h4><i class="fa-solid fa-user-shield"></i> Manager's Survival Kit</h4><ul><li><a href="#">Talking Points Cheatsheet</a></li><li><a href="#">How to Handle Resistance</a></li><li><a href="#">1:1 Conversation Guide</a></li></ul><div class="callout callout-success"><strong>Remember:</strong> Your confidence is contagious. Be prepared!</div></div><div class="resource-column"><h4><i class="fa-solid fa-list-check"></i> Project Management</h4><ul><li><a href="#">Project Plan Template</a></li><li><a href="#">RACI Matrix Template</a></li><li><a href="#">Stakeholder Map</a></li></ul><div class="callout callout-success"><strong>Tip:</strong> Schedule weekly 15-min check-ins with your core project team.</div></div><div class="resource-column"><h4><i class="fa-solid fa-gauge-high"></i> Measurement Tools</h4><ul><li><a href="#">Pulse Survey Questions</a></li><li><a href="#">Success Metrics Dashboard</a></li><li><a href="#">Focus Group Guide</a></li></ul><div class="callout callout-success"><strong>Remember:</strong> What gets measured gets done.</div></div></div></div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="page-section bg-light">
+            <div class="container"><h2>Frequently Asked Questions</h2><div class="faq-accordion"><div class="faq-item"><button class="faq-question"><span>How do we decide which job families to change?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>This decision is driven by business strategy, evolving skill needs, or to align with industry standards. It starts with leadership identifying a strategic need.</p></div></div><div class="faq-item"><button class="faq-question"><span>Will this change affect my compensation?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>All roles are mapped to new salary bands. Any individual impact will be discussed in a private 1:1 meeting with your manager and HRBP.</p></div></div><div class="faq-item"><button class="faq-question"><span>What if I don't agree with my new job family or level?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>We have an appeals process. The first step is to discuss your concerns with your manager. If you're still not aligned, you can submit a formal review request.</p></div></div><div class="faq-item"><button class="faq-question"><span>How will this impact my career growth?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>A key goal is to provide *clearer* career paths. Your new job family will have a well-defined ladder with specific competencies for each level.</p></div></div><div class="faq-item"><button class="faq-question"><span>Who is my main point of contact for questions?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>Your manager is always your first point of contact. For confidential questions, your assigned HRBP is your go-to partner.</p></div></div><div class="faq-item"><button class="faq-question"><span>When will these changes be reflected in the HR system?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>System updates (like in Workday) will typically go live 1-2 weeks after the official announcement. See the timeline for exact dates.</p></div></div><div class="faq-item"><button class="faq-question"><span>Will there be layoffs as part of this?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>This initiative is a re-organization of our job structure, not a workforce reduction. The goal is to align our talent to future needs.</p></div></div><div class="faq-item"><button class="faq-question"><span>What training will be provided?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p>We will provide training on the new career frameworks. Managers will also receive specific training on how to have effective conversations.</p></div></div></div></div>
+        </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <p>© 2024 Your Company, Inc. | This is an internal playbook for HR and Management personnel.</p>
     </footer>
 
-    <a href="#home" class="jump-to-top" id="jumpToTopBtn">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
+    <!-- JUMP TO TOP BUTTON -->
+    <a href="#home" class="jump-to-top" id="jumpToTopBtn"><i class="fa-solid fa-arrow-up"></i></a>
 
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

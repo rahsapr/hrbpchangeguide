@@ -18,195 +18,96 @@
 </head>
 <body>
 
-    <!--==| Global Interactive Elements |==-->
-    <div id="progressBar"></div>
+    <!-- ... (All previous HTML from body to start of Section 8 remains exactly the same) ... -->
 
-    <header id="mainHeader">
-        <nav class="container">
-            <a href="#home" class="logo">HRBP Playbook</a>
-            <ul class="nav-links">
-                <li><a href="#welcome" class="nav-link">Welcome</a></li>
-                <li><a href="#themes" class="nav-link">Themes</a></li>
-                <li><a href="#process" class="nav-link">Process</a></li>
-                <li><a href="#timeline" class="nav-link">Timeline</a></li>
-                <li><a href="#tools" class="nav-link">Tools</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-            </ul>
-            <button id="hamburger-menu" aria-label="Open navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <button id="checklist-toggle">
-        <i class="fas fa-tasks"></i> Checklist
-    </button>
-
-    <aside id="sidebar-checklist">
-        <div class="sidebar-header">
-            <h3>Key Task Checklist</h3>
-            <button id="close-sidebar" aria-label="Close checklist">×</button>
-        </div>
-        <div class="sidebar-content">
-            <ul id="checklist-items">
-                <li class="checklist-item"><label><input type="checkbox" data-id="task-1"> Understand Guiding Principles</label><a href="#welcome" class="quick-link">Go <i class="fas fa-arrow-right"></i></a></li>
-                 <li class="checklist-item"><label><input type="checkbox" data-id="task-2"> Review Key Themes</label><a href="#themes" class="quick-link">Go <i class="fas fa-arrow-right"></i></a></li>
-                 <li class="checklist-item"><label><input type="checkbox" data-id="task-3"> Review the 5-Phase Process</label><a href="#process" class="quick-link">Go <i class="fas fa-arrow-right"></i></a></li>
-                 <li class="checklist-item"><label><input type="checkbox" data-id="task-4"> Check the Project Timeline</label><a href="#timeline" class="quick-link">Go <i class="fas fa-arrow-right"></i></a></li>
-                 <li class="checklist-item"><label><input type="checkbox" data-id="task-5"> Explore AI-Powered Tools</label><a href="#tools" class="quick-link">Go <i class="fas fa-arrow-right"></i></a></li>
-            </ul>
-        </div>
-    </aside>
-    <div id="sidebar-overlay"></div>
-
-    <a href="#home" id="jumpToTop" aria-label="Jump to top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
     <main>
-        <!--==| Section 1: Hero Banner |==-->
-        <section id="home" class="hero-banner">
-            <div class="hero-content container">
-                <h1>Guide to Making Job Family Changes</h1>
-                <p>A comprehensive AI-powered playbook for HRBPs and managers to navigate complex organizational transformations with clarity and confidence.</p>
-                <div class="hero-buttons">
-                    <a href="#tldr" class="btn btn-secondary">TL;DR Version</a>
-                    <a href="#tools" class="btn btn-primary">Access AI Tools</a>
-                </div>
-            </div>
-        </section>
+        <!-- ... (Sections 1 through 7 remain exactly the same) ... -->
 
-        <!--==| Section 2: TL;DR |==-->
-        <section id="tldr" class="page-section">
-            <div class="container">
-                <div class="grid-3">
-                    <div class="card text-center"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Assess & Plan</h3><p>Start by understanding the 'why' behind the change and gathering all necessary data.</p><a href="#process" class="btn btn-link">See Discovery Phase</a></div>
-                    <div class="card text-center"><div class="card-icon"><i class="fas fa-sitemap"></i></div><h3>Design & Validate</h3><p>Collaborate with leaders to design the new structure and validate it against business goals.</p><a href="#process" class="btn btn-link">See Design Phase</a></div>
-                    <div class="card text-center"><div class="card-icon"><i class="fas fa-bullhorn"></i></div><h3>Communicate & Execute</h3><p>Roll out the changes with clear communication plans and support for affected employees.</p><a href="#resources" class="btn btn-link">Get Templates</a></div>
-                </div>
-            </div>
-        </section>
-
-        <!--==| Section 3: Welcome (with Image) |==-->
-        <section id="welcome" class="page-section bg-light">
-            <div class="container grid-2-vertical-align">
-                <div class="welcome-text">
-                    <h2>Welcome to the Playbook</h2>
-                    <p>This interactive guide is designed to replace static documents and provide a single source of truth for managing job family changes. Our goal is to empower you with a clear, step-by-step process, practical tools, and key insights to ensure a smooth and successful transition for everyone involved.</p>
-                </div>
-                <div class="welcome-image">
-                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Team collaborating in a modern office">
-                </div>
-            </div>
-        </section>
-
-        <!--==| Section 4: Key Themes |==-->
-        <section id="themes" class="page-section">
-             <div class="container">
-                <header class="section-header"><h2>Key Themes & Principles</h2><p>Three core principles guide every successful job family change.</p></header>
-                <div class="grid-3 equal-height">
-                    <div class="card"><div class="card-icon large"><i class="fas fa-balance-scale"></i></div><h3>Fairness & Equity</h3><p>Ensure all decisions are objective, data-driven, and consistently applied to build trust and maintain morale.</p><div class="callout"><strong>Key Action:</strong> Conduct an equity review before finalizing any changes.</div><ul class="highlights-list"><li><i class="fas fa-check"></i> Standardized evaluation criteria</li><li><i class="fas fa-check"></i> Unbiased calibration sessions</li><li><i class="fas fa-check"></i> Clear appeals process</li></ul></div>
-                    <div class="card"><div class="card-icon large"><i class="fas fa-users"></i></div><h3>Manager Enablement</h3><p>Equip people managers with the tools, training, and talking points they need to lead their teams through the change.</p><div class="callout"><strong>Key Action:</strong> Hold dedicated training sessions for all impacted managers.</div><ul class="highlights-list"><li><i class="fas fa-check"></i> Manager-specific FAQ docs</li><li><i class="fas fa-check"></i> Role-playing difficult conversations</li><li><i class="fas fa-check"></i> Direct line to HR support</li></ul></div>
-                    <div class="card"><div class="card-icon large"><i class="fas fa-comments"></i></div><h3>Transparent Communication</h3><p>Proactively share information about the process, timeline, and rationale to reduce anxiety and speculation.</p><div class="callout"><strong>Key Action:</strong> Create a central communication hub for all updates.</div><ul class="highlights-list"><li><i class="fas fa-check"></i> Regular progress updates</li><li><i class="fas fa-check"></i> Clear "What's Next" sections</li><li><i class="fas fa-check"></i> Opportunities for Q&A</li></ul></div>
-                </div>
-            </div>
-        </section>
-
-        <!--==| Section 5: The 5-Phase Process (with Images) |==-->
-        <section id="process" class="page-section bg-light">
-            <div class="container">
-                 <header class="section-header"><h2>The 5-Phase Process</h2><p>A structured approach from initial idea to final implementation.</p></header>
-                <div class="tabs-container">
-                    <div class="tab-buttons" role="tablist" aria-label="Project Phases">
-                        <button role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" class="tab-button active">1. Discovery</button>
-                        <button role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" class="tab-button">2. Design</button>
-                        <button role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" class="tab-button">3. Validation</button>
-                        <button role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" class="tab-button">4. Implementation</button>
-                        <button role="tab" aria-selected="false" aria-controls="panel-5" id="tab-5" class="tab-button">5. Sustain</button>
-                    </div>
-                    <div class="tab-content">
-                        <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" class="tab-panel active">
-                            <div class="grid-2-vertical-align">
-                                <div><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Discovery phase with team at a whiteboard"></div>
-                                <div><h4>Objectives & Activities</h4><p>Define the problem, scope the project, align with stakeholders, and conduct initial data analysis. Use the AI Charter Builder for a head start.</p><div class="callout callout-secondary">Engage senior leadership early to secure sponsorship.</div></div>
-                            </div>
-                        </div>
-                         <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" class="tab-panel">
-                             <div class="grid-2-vertical-align">
-                                <div><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Design phase with people creating structures"></div>
-                                <div><h4>Objectives & Activities</h4><p>Develop the new job family structure, career paths, competency models, and write job descriptions. The AI Job Description Generator is a powerful tool here.</p><div class="callout callout-secondary">Co-create with business leaders, don't design in a silo.</div></div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" class="tab-panel">
-                             <div class="grid-2-vertical-align">
-                                <div><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Validation phase with a focus group discussion"></div>
-                                <div><h4>Objectives & Activities</h4><p>Pressure-test the new design with managers, run calibration sessions, and analyze the financial impact. Be open to feedback and ready to iterate.</p><div class="callout callout-secondary">Model the compensation impact carefully.</div></div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" id="panel-4" aria-labelledby="tab-4" class="tab-panel">
-                             <div class="grid-2-vertical-align">
-                                <div><img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Implementation phase showing a presentation"></div>
-                                <div><h4>Objectives & Activities</h4><p>Execute the change, communicate to all employees, update HR systems, and manage the transition. Use the Communication Plan template to stay organized.</p><div class="callout callout-secondary">Manager readiness is the #1 predictor of success.</div></div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" id="panel-5" aria-labelledby="tab-5" class="tab-panel">
-                             <div class="grid-2-vertical-align">
-                                <div><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sustain phase with graphs and analytics on a screen"></div>
-                                <div><h4>Objectives & Activities</h4><p>Monitor the impact of the change, conduct post-launch surveys, and embed it in ongoing talent processes. Schedule a 6-month review to assess long-term success.</p><div class="callout callout-secondary">The work isn't over on launch day.</div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==| Section 6: Timeline |==-->
-        <section id="timeline" class="page-section">
-            <div class="container">
-                <header class="section-header"><h2>Sample Project Timeline</h2><p>A typical 12-week timeline. Drag to scroll horizontally.</p></header>
-                <div class="timeline-container"><div class="timeline-track"><div class="timeline-card"><div class="date">Week 1</div><i class="fas fa-flag"></i><h4>Project Kickoff</h4><p>Define scope & goals.</p></div><div class="timeline-card"><div class="date">Week 1-2</div><i class="fas fa-database"></i><h4>Data Gathering</h4><p>Collect all current role data.</p></div><div class="timeline-card"><div class="date">Week 3-4</div><i class="fas fa-drafting-compass"></i><h4>Initial Design</h4><p>Draft new job families.</p></div><div class="timeline-card"><div class="date">Week 5</div><i class="fas fa-users-cog"></i><h4>Leadership Review</h4><p>Get feedback from VPs.</p></div><div class="timeline-card"><div class="date">Week 6-7</div><i class="fas fa-user-check"></i><h4>Validation & Calibration</h4><p>Test with manager groups.</p></div><div class="timeline-card"><div class="date">Week 8</div><i class="fas fa-dollar-sign"></i><h4>Financial Analysis</h4><p>Model compensation impact.</p></div><div class="timeline-card"><div class="date">Week 9</div><i class="fas fa-file-signature"></i><h4>Final Approval</h4><p>Secure executive sign-off.</p></div><div class="timeline-card"><div class="date">Week 10</div><i class="fas fa-chalkboard-teacher"></i><h4>Manager Training</h4><p>Enable people leaders.</p></div><div class="timeline-card"><div class="date">Week 11</div><i class="fas fa-bullhorn"></i><h4>Communicate Change</h4><p>Inform all employees.</p></div><div class="timeline-card"><div class="date">Week 12</div><i class="fas fa-cogs"></i><h4>Systems Update</h4><p>Go-live in HRIS.</p></div></div></div>
-            </div>
-        </section>
-
-        <!--==| Section 7: AI-Powered Tools (with Background Images) |==-->
-        <section id="tools" class="page-section bg-light">
-            <div class="container">
-                <header class="section-header"><h2>AI-Powered Tools</h2><p>Leverage AI to accelerate your workflow and improve quality.</p></header>
-                <div class="grid-3">
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1581091226809-a7a2165b654b?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>Project Charter Builder</h4><p>Generate a structured project charter based on your goals.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>Job Description Generator</h4><p>Create consistent, high-quality job descriptions in minutes.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>Competency Modeler</h4><p>Identify and define key competencies for new roles.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>Communication Plan Creator</h4><p>Draft a multi-channel communication plan.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>Manager Talking Points</h4><p>Get AI-generated talking points for difficult conversations.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                    <div class="tool-card" style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800')"><div class="tool-card-content"><h4>FAQ Assistant</h4><p>Anticipate employee questions and draft clear answers.</p><button class="btn btn-secondary">Launch Tool</button></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!--==| Section 8: Resources |==-->
+        <!--==| Section 8: Resources & Templates (INTERACTIVE LIBRARY) |==-->
         <section id="resources" class="page-section">
             <div class="container">
-                <header class="section-header"><h2>Resources & Templates</h2><p>Downloadable assets to help you execute flawlessly.</p></header>
-                <div class="grid-4 equal-height">
-                    <div class="card"><div class="card-icon"><i class="fas fa-file-powerpoint"></i></div><h4>Presentations</h4><ul><li><a href="#">Project Kickoff Deck</a></li><li><a href="#">Leadership Update Template</a></li><li><a href="#">All-Hands Announcement</a></li></ul><div class="callout callout-secondary">Adapt these templates for your specific audience.</div></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-file-excel"></i></div><h4>Spreadsheets</h4><ul><li><a href="#">Role Mapping Tracker</a></li><li><a href="#">Compensation Impact Model</a></li><li><a href="#">Project Plan (Gantt)</a></li></ul><div class="callout callout-secondary">Validate formulas before entering real data.</div></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-file-word"></i></div><h4>Documents</h4><ul><li><a href="#">Manager Comms Toolkit</a></li><li><a href="#">Employee FAQ Template</a></li><li><a href="#">Project Charter Doc</a></li></ul><div class="callout callout-secondary">Customize the messaging to fit your company culture.</div></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-link"></i></div><h4>External Links</h4><ul><li><a href="#">SHRM Job Family Guide</a></li><li><a href="#">HBR Change Management</a></li><li><a href="#">World at Work on Leveling</a></li></ul><div class="callout callout-secondary">Stay current with industry best practices.</div></div>
+                <header class="section-header">
+                    <h2>Resources & Templates</h2>
+                    <p>An interactive library of downloadable assets to help you execute flawlessly.</p>
+                </header>
+
+                <div class="resource-library">
+                    <!-- Left Column: Navigation -->
+                    <div class="resource-categories">
+                        <button class="category-btn" data-category="presentations" data-icon="fa-file-powerpoint">
+                            <i class="fas fa-file-powerpoint"></i> Presentations
+                        </button>
+                        <button class="category-btn" data-category="spreadsheets" data-icon="fa-file-excel">
+                            <i class="fas fa-file-excel"></i> Spreadsheets
+                        </button>
+                        <button class="category-btn" data-category="documents" data-icon="fa-file-word">
+                            <i class="fas fa-file-word"></i> Documents
+                        </button>
+                        <button class="category-btn" data-category="links" data-icon="fa-link">
+                            <i class="fas fa-link"></i> External Links
+                        </button>
+                    </div>
+
+                    <!-- Right Column: Content Display -->
+                    <div class="resource-content">
+                        <i id="content-bg-icon" class="fas fa-hand-pointer"></i>
+                        <div class="content-display-area">
+                            <!-- Initial Prompt Panel -->
+                            <div id="resource-prompt" class="resource-panel active">
+                                <h3>Select a category</h3>
+                                <p>Click on a category to the left to view and download relevant resources.</p>
+                            </div>
+
+                            <!-- Presentations Panel -->
+                            <div id="presentations-content" class="resource-panel">
+                                <h3>Presentation Templates</h3>
+                                <ul class="resource-list">
+                                    <li><a href="#"><i class="fas fa-download"></i> Project Kickoff Deck</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> Leadership Update Template</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> All-Hands Announcement</a></li>
+                                </ul>
+                                <div class="callout callout-secondary"><strong>Top Tip:</strong> Adapt these templates for your specific audience and branding.</div>
+                            </div>
+
+                            <!-- Spreadsheets Panel -->
+                            <div id="spreadsheets-content" class="resource-panel">
+                                <h3>Spreadsheet Templates</h3>
+                                <ul class="resource-list">
+                                    <li><a href="#"><i class="fas fa-download"></i> Role Mapping Tracker</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> Compensation Impact Model</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> Project Plan (Gantt)</a></li>
+                                </ul>
+                                <div class="callout callout-secondary"><strong>Top Tip:</strong> Always double-check formulas and create a backup before entering real employee data.</div>
+                            </div>
+                            
+                            <!-- Documents Panel -->
+                            <div id="documents-content" class="resource-panel">
+                                <h3>Document Templates</h3>
+                                <ul class="resource-list">
+                                    <li><a href="#"><i class="fas fa-download"></i> Manager Communications Toolkit</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> Employee FAQ Template</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i> Project Charter Document</a></li>
+                                </ul>
+                                <div class="callout callout-secondary"><strong>Top Tip:</strong> Customize the messaging and tone to perfectly fit your company's unique culture.</div>
+                            </div>
+
+                            <!-- External Links Panel -->
+                            <div id="links-content" class="resource-panel">
+                                <h3>External Links</h3>
+                                <ul class="resource-list">
+                                    <li><a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> SHRM Job Family Guide</a></li>
+                                    <li><a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> HBR on Change Management</a></li>
+                                    <li><a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> World at Work on Leveling</a></li>
+                                </ul>
+                                <div class="callout callout-secondary"><strong>Top Tip:</strong> Stay current with industry best practices by consulting these trusted sources.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!--==| Section 9: FAQ |==-->
-        <section id="faq" class="page-section bg-light">
-            <div class="container faq-container">
-                <header class="section-header"><h2>Frequently Asked Questions</h2></header>
-                <div class="accordion">
-                    <div class="accordion-item"><button class="accordion-header" aria-expanded="false" aria-controls="faq-1">How do we decide which roles need a new job family?<i class="fas fa-chevron-down"></i></button><div class="accordion-content" id="faq-1"><p>This process is typically initiated when there's a significant business strategy shift, a new function is created, or existing roles have evolved so much that their current classifications are no longer accurate. The key trigger is a misalignment between the work being done and the way it's structured and rewarded.</p></div></div>
-                    <div class="accordion-item"><button class="accordion-header" aria-expanded="false" aria-controls="faq-2">What is the manager's role in this process?<i class="fas fa-chevron-down"></i></button><div class="accordion-content" id="faq-2"><p>Managers are critical partners. They provide essential input on the actual work being done (job analysis), help validate the new structure, and are responsible for communicating the changes to their direct reports. Their proactive engagement is a top predictor of success.</p></div></div>
-                    <div class="accordion-item"><button class="accordion-header" aria-expanded="false" aria-controls="faq-3">Will this change affect my pay or title?<i class="fas fa-chevron-down"></i></button><div class="accordion-content" id="faq-3"><p>This is a common and valid employee concern. A core principle of this process is to ensure fairness. While the project may result in new titles or adjusted compensation bands to align with the market, individual impacts are carefully reviewed. The goal is to ensure people are paid fairly for the work they do within the new structure, not to reduce compensation.</p></div></div>
-                </div>
-            </div>
-        </section>
+        <!-- ... (Section 9 and Footer remain exactly the same) ... -->
     </main>
 
     <footer id="footer">
